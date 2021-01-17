@@ -9,7 +9,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(input.value)
+        body: JSON.stringify(input.value.toUpperCase())
     }).then(response => {return response.json() })
     .then(data => { printMatrix(data) })
     .catch(err => { console.log(err) })
