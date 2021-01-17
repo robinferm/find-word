@@ -56,6 +56,13 @@ def findDiagonal(word, data):
 
     return data
 
+# test = importData()
+# test.reverse()
+# print(findDiagonal('KABIN', importData()))
+# print(findDiagonal('KABIN', test))
+
+#print(findDiagonalTEST('KABIN', flipData(importData())))
+
     # Main function
 def findWord(word):
     data = importData()
@@ -64,6 +71,47 @@ def findWord(word):
     
     # Search vertical (and reverse)
     data = findVertical(word, data)
+
+    # Search diagonal (right bot side: /->) (and reverse)
+    data.reverse()
+    botDiagonalReverse = findDiagonal(word, data)
+    topDiagonalReverse = findDiagonal(word, flipData(data))
+
+    # Restore topDiagonalReverse format
+    topDiagonalReverse.reverse()
+    tempList = []
+    for x in range(len(topDiagonalReverse)):
+        tempString = ""
+        for y in range(len(topDiagonalReverse)):
+            tempString += topDiagonalReverse[y][x]
+        tempList.append(tempString)
+        topDiagonalReverse.pop()
+    topDiagonalReverse = tempList
+
+    # Restore botDiagonalReverse format
+    botDiagonalReverse.pop()
+    tempList = []
+    for z in range(1, len(botDiagonalReverse)+1):
+        tempString = ""
+        for x in range(len(botDiagonalReverse)):
+            tempString += botDiagonalReverse[x][-z]
+        tempList.append(tempString)
+        botDiagonalReverse.pop(0)
+    botDiagonalReverse = tempList
+    botDiagonalReverse.reverse()
+
+    # Merge topDiagonalReverse and botDiagonalReverse
+    mergedLists = []
+    for i in range(len(botDiagonalReverse)): ###############
+        mergedLists.append(botDiagonalReverse[i] + topDiagonalReverse[i+1])
+    mergedLists.insert(0, topDiagonalReverse[0])
+
+    print(mergedLists)
+    mergedLists = flipData(mergedLists)
+    #mergedLists.reverse
+    print(mergedLists)
+    data = mergedLists
+    data.reverse()
 
     # Search diagonal (right top side: \->) (and reverse)
     topDiagonal = findDiagonal(word, data)
