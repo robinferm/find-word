@@ -17,7 +17,6 @@ document.querySelector("form").addEventListener("submit", function (e) {
 
 
 function printMatrix(data) {
-
     // Clear output
     output.innerHTML = ""
     const regex = /[a-z]/;
@@ -45,3 +44,15 @@ function printMatrix(data) {
         output.innerHTML += `</tr>`
     }
 }
+
+// Print matrix on page load
+printMatrix(['UFDACYGLKP',
+            'KABINAQXYV',
+            'YLLNGTTAKE',
+            'ZMPLWARZNO',
+            'GVFAIXAAFY',
+            'YMPLPGLSOH',
+            'WGVHFPACKW',
+            'AFTERTLTHU',
+            'TNKIDCBEOS',
+            'ZBAMANSWER'])
