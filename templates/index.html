@@ -3,14 +3,19 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<h1 class="test">Find word</h1>
+
+<h1>Find word</h1>
 <form action="/" id="form" method="POST">
     <input type="text" id="input">
     <input type="submit" value="Click me" />
 </form>
-<p id="test">hej</p>
-<div id="output">
-    test
+<div id="container">
+    <table>
+        <tbody id="output">
+
+        </tbody>
+
+    </table>
 </div>
 <!--<button> <a href="/find-word/">Click me2</a></button>-->
 <!-- <script>
