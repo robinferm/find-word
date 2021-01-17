@@ -1,3 +1,5 @@
+import json
+
 def importData():
     with open ("data.txt") as d:
         data = d.readlines()
@@ -97,24 +99,26 @@ def findWord(word):
     mergedLists.insert(0, topDiagonal[0])
 
     # Return the matrix (all cases) (returns unedited if word was not found)
+    #return json.dumps(mergedLists)
     return mergedLists
 
 
-
-
+#findWord('KABIN')
 ### Find many ###
-words = ['GILLAU', 'UFDA', 'UKYZ', 'APWDOAKWD']
-for word in words:
-    print()
-    print(f'SEARCHING FOR {word}')
-    result = findWord(word)
-    for r in result:
-        print(r)
+# words = ['GILLAU', 'UFDA', 'UKYZ', 'APWDOAKWD']
+# for word in words:
+#     print()
+#     print(f'SEARCHING FOR {word}')
+#     result = findWord(word)
+#     for r in result:
+#         print(r)
 
 ### Find one ###
-# result = findWord('GILLAU')
-# for x in result:
-#     print(x)
+#result = findWord('GILLAU')
+#print(result)
+## for x in result:
+##     print(x)
+
 
 
 

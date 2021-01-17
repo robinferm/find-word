@@ -1,0 +1,40 @@
+
+{% block main %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<h1 class="test">Find word</h1>
+<form action="/" id="form" method="POST">
+    <input type="text" id="input">
+    <input type="submit" value="Click me" />
+</form>
+<p id="test">hej</p>
+<div id="output">
+    test
+</div>
+<!--<button> <a href="/find-word/">Click me2</a></button>-->
+<!-- <script>
+    const input = document.getElementById('input');
+    const output = document.getElementById('output');
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();    //stop form from submitting
+
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(input.value)
+        }).then(response => {return response.json() })
+        //.then(data => document.getElementById('test').innerHTML = data)
+        .then(data => {for(i = 0; i < 9; i++) {
+        output.innerHTML += `
+        <p>${data[i]}</p>
+        `}})
+        .catch(err => { console.log(err) })
+    });
+
+</script> -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
